@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTD Login Form</title>
+    <link rel="stylesheet" href="{% static 'login_style.css' %}">
+</head>
+    <body>
+        <section>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="box">
+                <div class="square" style="--i:0;"></div>
+                <div class="square" style="--i:1;"></div>
+                <div class="square" style="--i:2;"></div>
+                <div class="square" style="--i:3;"></div>
+                <div class="square" style="--i:4;"></div>
+                <div class="container">
+                    <div class="form">
+                        <h2>Login form</h2>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="inputbox">
+                                <input type="text" placeholder="Username" name="username">
+                            </div>
+                            <div class="inputbox">
+                                <input type="password" placeholder="Password" name="password">
+                            </div>
+                            <div class="inputbox">
+                                <a href="{% url 'users:homepage' %}"><input type="submit" value="Login"></a>
+                            </div>
+                            <p class="forget">Don't have an account ? <a href="{% url 'users:register' %}">Sign up</a></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
